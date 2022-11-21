@@ -4,7 +4,9 @@
   "description": "Heia blog API",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js"
+    "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js",
+    "lint": "prettier --write",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,10 @@
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "env-cmd": "^10.1.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "express": "^4.18.2",
     "mongoose": "^6.7.2"
   },
@@ -30,6 +36,8 @@
     "@babel/node": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "@babel/runtime": "^7.20.1",
-    "nodemon": "^2.0.20"
+    "husky": "^8.0.2",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1"
   }
 }
