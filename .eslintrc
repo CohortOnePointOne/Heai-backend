@@ -1,0 +1,29 @@
+{
+    "parser": "@babel/eslint-parser",
+    "plugins": [
+        "babel",
+        "prettier"
+    ],
+    "extends": ["blueimp", "plugin:prettier/recommended"],
+    "globals": {
+        "process": true,
+        "__dirname": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "requireConfigFile": false,
+        "es6": true,
+        "sourceType": "module"
+    },
+    "ignorePatterns": ["src/tests/**"],
+    "rules": {
+        "prettier/prettier": ["error"],
+        "new-cap": "off",
+        "camelcase": "off",
+        "no-console": ["warn", { "allow": ["debug", "error", "warn", "log"] }]
+    },
+    "env": {
+        "es6": true,
+        "node": true
+    }
+}

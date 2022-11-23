@@ -4,7 +4,9 @@
   "description": "Heia blog API",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js"
+    "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js",
+    "prepare": "husky install",
+    "lint": "eslint src --fix"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,8 @@
     "dotenv": "^16.0.3",
     "env-cmd": "^10.1.0",
     "express": "^4.18.2",
-    "mongoose": "^6.7.2"
+    "mongoose": "^6.7.2",
+    "nodemon": "^2.0.20"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
@@ -30,6 +33,17 @@
     "@babel/node": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "@babel/runtime": "^7.20.1",
-    "nodemon": "^2.0.20"
+    "@babel/eslint-parser": "^7.19.1",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-blueimp": "^2.3.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "prettier": "^2.7.1"
   }
 }

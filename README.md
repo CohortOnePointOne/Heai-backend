@@ -28,3 +28,6 @@ Install Node package Manager(npm) and run the npm i or install command to instal
 ## Usage
 To start the server, cd into the repo and in your terminal type the command below and press enter:
     npm run start / npm start
+
+#Linting
+To format your changes run the command `npm run lint` 
