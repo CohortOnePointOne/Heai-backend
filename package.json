@@ -4,15 +4,9 @@
   "description": "Heia blog API",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js",
-    "lint": "prettier --write",
-    "prepare": "husky install"
-=======
     "start": "env-cmd -f src/config/dev.env nodemon babel-node src/index.js",
     "prepare": "husky install",
     "lint": "eslint src --fix"
->>>>>>> a8e56b5 (setup linting)
   },
   "repository": {
     "type": "git",

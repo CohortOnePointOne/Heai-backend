@@ -1,10 +1,5 @@
 import bodyParser from "body-parser";
 import express from "express";
-<<<<<<< HEAD
-=======
-// import dotenv from "dotenv";
-// import mongoose from "mongoose";
->>>>>>> a8e56b5 (setup linting)
 import dbConnection from "./db/mongoose.js";
 
 dbConnection();
