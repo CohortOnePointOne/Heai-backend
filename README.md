@@ -28,3 +28,22 @@ Install Node package Manager(npm) and run the npm i or install command to instal
 ## Usage
 To start the server, cd into the repo and in your terminal type the command below and press enter:
     npm run start / npm start
+
+#Husky
+Helps prevent a bad commit or push
+
+#Install
+npm install husky --save-dev
+
+#Usage
+Edit package.json> prepare script and run it once:
+npm pkg set scripts.prepare="husky install"
+npm run prepare
+
+#Add a hook
+npx husky add .husky/pre-commit "npm run lint"
+git add .husky/pre-commit
+
+#make a commit
+git commit -m "Keep calm and commit"
+# `npm run lint` will run
