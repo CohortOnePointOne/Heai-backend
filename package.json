@@ -4,7 +4,7 @@
   "description": "Heia blog API",
   "main": "index.js",
   "scripts": {
-  "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js",
+    "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js",
     "prepare": "husky install",
     "lint": "eslint src --fix"
   },
