@@ -10,6 +10,7 @@
     "test": "env-cmd -f ./config/test.env jest --runInBand --verbose --coverage",
     "dev:test": "env-cmd -f ./config/test.env jest --verbose --runInBand",
     "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "prepare": "husky install"
