@@ -1,4 +1,6 @@
 .idea
 .DS_Store
 node_modules
-config
+config/test.env
+config/dev.env
+coverage
