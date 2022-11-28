@@ -32,7 +32,7 @@ jobs:
         with:
           envkey_PORT: 5000
           envkey_TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
-          envkey_DB_CONNECT: mongodb://localhost:27017/heai-test
+          envkey_DB_CONNECT: ${{ secrets.DB_CONNECT }}
           directory: config
           file_name: test.env
 
@@ -41,7 +41,7 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
 
-      - run: npm i
+      - run: npm ci
       - run: npm test
 
       - name: Coveralls
