@@ -41,7 +41,7 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
 
-      - run: npm ci
+      - run: npm i
       - run: npm test
 
       - name: Coveralls
