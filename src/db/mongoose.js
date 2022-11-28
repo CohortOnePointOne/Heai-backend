@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
-const { MONGO_DB } = process.env;
+const { DB_CONNECT } = process.env;
 
 function connect() {
   // Connecting to the database
   mongoose
-    .connect(`${MONGO_DB}`, {})
+    .connect(`${DB_CONNECT}`, {})
     .then(() => {
       console.log('Successfully connected to database');
     })
