@@ -5,10 +5,7 @@ const { DB_CONNECT } = process.env;
 function connect() {
   // Connecting to the database
   mongoose
-    .connect(`${DB_CONNECT}`, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-    })
+    .connect(`${DB_CONNECT}`, {})
     .then(() => {
       console.log('Successfully connected to database');
     })
