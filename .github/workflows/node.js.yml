@@ -32,7 +32,7 @@ jobs:
         with:
           envkey_PORT: 5000
           envkey_TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
-          envkey_DB_CONNECT: ${{ secrets.MONGO_DB }}
+          envkey_DB_CONNECT: ${{ secrets.DB_CONNECT }}
           directory: config
           file_name: test.env
 
