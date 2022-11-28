@@ -41,7 +41,7 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
 
-      - run: cd my-site && npm ci --ignore-scripts
+      - run: npm ci --ignore-scripts
       - run: npm test
 
       - name: Coveralls
