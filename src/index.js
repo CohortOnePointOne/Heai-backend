@@ -1,15 +1,7 @@
-import bodyParser from "body-parser";
-import express from "express";
-import dbConnection from "./db/mongoose.js";
+import app from './app';
 
-dbConnection();
+const { PORT } = process.env || 3000;
 
-const app = express();
-
-app.use(bodyParser.json());
-app.get("/", (req, res) => {
-  res.send("Home Page");
+app.listen(PORT, () => {
+  console.log(`Connecting on port ${PORT} ...`);
 });
-const { PORT } = process.env;
-
-app.listen(PORT, console.log(`Server running at Port ${PORT}`));
