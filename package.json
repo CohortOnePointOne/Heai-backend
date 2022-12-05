@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "env-cmd -f config/dev.env nodemon --exec babel-node  src/index.js",
+    "test": "env-cmd -f config/test.env  jest --force-exit",
     "prepare": "husky install",
     "lint": "eslint src --fix"
   },
@@ -47,9 +48,18 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husk": "^0.5.3",
     "husky": "^8.0.2",
+    "jest": "^29.3.1",
     "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.5",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "supertest": "^6.3.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!data/keyMap.js",
+      "!/node_modules/"
+    ]
   }
 }
