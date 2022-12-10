@@ -1,26 +1,36 @@
+import mongoose from "mongoose";
 import testBase from "./index.js"
-
-
+import { createUsers, deleteUsers } from './testdata/userTestData';
+let password
 describe("Authorise a User", function(){
-    const user = {
-        name: "user1",
-        username: "sign_User",
-        email: "user1@gmail.com",
-        passowrd: "user12323"
-    }
+    beforeAll((done)=>{
+       done()
+    })
 
-    beforeAll(async function(){
-        await testBase.post('/auth/user/signup').send(user)
+    beforeEach(async function (){
+       await createUsers()
+    })
+
+    afterEach(async function () {
+        await deleteUsers()
     })
 
     it("should sign in a user", async ()=>{
         const res =  await testBase.post('/auth/user/signin').send({
-            email: "mart@gmail.com",
-            password: "$2b$08$tp1coRdGS27AwYm9qnTF8.rdhiyUSYYIvGVpAcKO7n858I1RiUPx6"
+            email: 'user1@gmail.com',
+            password: '12345678'
         })
         expect(res.status).toBe(201)
         expect(res.body).toMatchObject({
             token: expect.stringMatching(/^(?:[\w-]*\.){2}[\w-]*$/),
           });
+    })
+
+    it("should not register given a wrong email", async()=>{
+        const res =  await testBase.post('/auth/user/signin').send({
+            email: 'use@gmail.com',
+            password: "12345678"
+        })
+        expect(res.status).toBe(400)
     })
 })
