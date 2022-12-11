@@ -13,6 +13,11 @@ describe("Authorise a User", function(){
 
     afterEach(async function () {
         await deleteUsers()
+        // await  mongoose.connect.close
+    })
+
+    afterAll(async ()=>{
+        mongoose.connection.close();
     })
 
     it("should sign in a user", async ()=>{
