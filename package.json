@@ -7,7 +7,7 @@
     "build": "babel ./src --out-dir ./build",
     "start": "node build/index.js",
     "dev": "env-cmd -f config/dev.env nodemon --exec babel-node src/index.js",
-    "test": "env-cmd -f ./config/test.env jest --runInBand --verbose --coverage --force-exit --detectOpenHandles",
+    "test": "env-cmd -f ./config/test.env jest --runInBand --verbose --coverage",
     "dev:test": "env-cmd -f ./config/test.env jest --verbose --runInBand",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
