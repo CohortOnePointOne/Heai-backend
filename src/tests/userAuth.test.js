@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import testBase from "./index.js"
-import { createUsers, deleteUsers } from './testdata/userTestData';
+import { createUsers, deleteUsers } from './TestData/userTestData.js';
 let password
 describe("Authorise a User", function(){
     beforeAll((done)=>{
