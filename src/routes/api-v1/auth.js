@@ -1,11 +1,11 @@
 import express from 'express';
-import controller from '../../controllers/user.js';
-import validate from '../../middleware/validate.js';
+import UserController from '../../controllers/user.js';
+// import Validate from '../../middleware/validate.js';
 
 const router = express();
 
-router.post('/signup', validate.userRegistration, controller.registerUser);
-router.post('/signin', validate.signIn, controller.signIn);
-router.post('/signout', controller.signOut);
+router.post('/signup', UserController.registerUser);
+router.post('/signin', UserController.signIn);
+router.post('/signout', UserController.signOut);
 
 export default router;

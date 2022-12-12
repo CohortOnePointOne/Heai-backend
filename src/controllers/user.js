@@ -2,8 +2,10 @@ import Jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import User from '../model/user.js';
+import profiles from '../model/profiles';
+import mongoose from 'mongoose';
 
-export default class controller {
+export default class UserController {
   static registerUser = async (req, res) => {
     const { name, username, email, password } = req.body;
 
@@ -29,7 +31,16 @@ export default class controller {
         email,
         password: encrypted_ps,
       });
-      user.save();
+
+      const { _id } = user;
+
+      const toId = mongoose.Types.ObjectId;
+      const newProfile = {
+        profileId: uuidv4(),
+        userId: toId(_id),
+      };
+
+      await profiles.create(newProfile);
 
       return res.status(201).json({
         message: 'User Registered',
@@ -75,7 +86,7 @@ export default class controller {
       });
     } catch (err) {
       return res.status(400).json({
-        Error: 'Check your regitration and try again',
+        Error: 'Check your registration and try again',
       });
     }
   };
