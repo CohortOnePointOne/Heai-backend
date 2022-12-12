@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import routes from './api-v1';
+import express from 'express';
+import routes from './api-v1/index.js';
 
-const router = Router();
+const router = express();
 
 router.use('/api/v1', routes);
 

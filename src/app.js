@@ -1,7 +1,7 @@
 import express from 'express';
 import error from './middleware/error';
 import connect from './db/mongoose.js';
-import routes from './routes';
+import routes from './routes/index.js';
 
 connect();
 const app = express();
