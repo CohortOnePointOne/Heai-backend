@@ -20,6 +20,49 @@ describe("Authorise a User", function(){
         mongoose.connection.close();
     })
 
+    it("should not use an already taken email", async()=>{
+        const res = await testBase.post('/auth/user/signup').send({
+            name:"Paul K",
+            username:"donmart",
+            email: 'user1@gmail.com',
+            password: "12345678"
+        })
+        expect(res.status).toBe(409)
+        expect(res.body.message).toBe('Email has been taken')
+    })
+
+    it("should not use an already taken username", async()=>{
+        const res = await testBase.post('/auth/user/signup').send({
+            name:"Paul K",
+            username:"User1",
+            email: 'donmart@gmail.com',
+            password: "12345678"
+        })
+        expect(res.status).toBe(409)
+        expect(res.body.message).toBe('Username has been taken')
+    })
+
+    it("should register a user", async()=>{
+        const res = await testBase.post('/auth/user/signup').send({
+            name:"Paul K",
+            username:"User18",
+            email: 'donmart@gmail.com',
+            password: "12345678"
+        })
+        expect(res.status).toBe(201)
+        expect(res.body.message).toBe('User Registered')
+    })
+
+    it("should not register given a wrong email", async()=>{
+        const res =  await testBase.post('/auth/user/signin').send({
+            email: 'use@gmail.com',
+            password: "12345678"
+        })
+        expect(res.status).toBe(400)
+    })
+
+
+
     it("should sign in a user", async ()=>{
         const res =  await testBase.post('/auth/user/signin').send({
             email: 'user1@gmail.com',
@@ -31,11 +74,5 @@ describe("Authorise a User", function(){
           });
     })
 
-    it("should not register given a wrong email", async()=>{
-        const res =  await testBase.post('/auth/user/signin').send({
-            email: 'use@gmail.com',
-            password: "12345678"
-        })
-        expect(res.status).toBe(400)
-    })
+
 })

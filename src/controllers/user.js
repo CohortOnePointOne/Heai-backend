@@ -8,6 +8,7 @@ class UserController {
     const { name, username, email, password } = req.body;
 
     const user__email = await User.findOne({ email });
+
     if (user__email) {
       return res.status(409).json({ message: 'Email has been taken' });
     }
