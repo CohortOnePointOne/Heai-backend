@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import User from '../model/user.js';
 
-export default class controller {
-  static registerUser = async (req, res) => {
+class UserController {
+  static async registerUser(req, res) {
     const { name, username, email, password } = req.body;
 
     const user__email = await User.findOne({ email });
@@ -40,8 +40,9 @@ export default class controller {
         msg: err,
       });
     }
-  };
-  static signIn = async (req, res) => {
+  }
+
+  static async signIn(req, res) {
     try {
       const { email, password } = req.body;
       const user = await User.findOne({ email });
@@ -78,12 +79,14 @@ export default class controller {
         Error: 'Check your regitration and try again',
       });
     }
-  };
+  }
 
-  static signOut = (req, res) => {
+  static signOut(req, res) {
     res.clearCookie('token');
     return res.json({
       message: 'User has signed out!',
     });
-  };
+  }
 }
+
+export default UserController
