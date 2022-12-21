@@ -53,14 +53,12 @@ class UserController {
           Error: "Email doesn't Exist!",
         });
       }
-
-      const passCheck = bcrypt.compare(password, user.password);
+      const passCheck = await bcrypt.compare(password, user.password);
       if (!passCheck) {
         return res
           .status(401)
           .json({ Error: 'Please Check Email or Password' });
       }
-
       const token = Jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
 
       res.cookie('token', token, { expire: new Date() + 1 });
@@ -77,7 +75,8 @@ class UserController {
       });
     } catch (err) {
       return res.status(400).json({
-        Error: 'Check your regitration and try again',
+        Error: 'Check your registration and try again',
+        err: err,
       });
     }
   }
