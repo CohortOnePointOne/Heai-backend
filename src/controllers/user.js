@@ -30,7 +30,6 @@ class UserController {
         email,
         password: encrypted_ps,
       });
-      user.save();
 
       return res.status(201).json({
         message: 'User Registered',
