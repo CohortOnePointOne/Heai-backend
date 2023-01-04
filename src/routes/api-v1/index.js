@@ -1,4 +1,6 @@
-import { Router } from 'express';
+import express from 'express';
+import userAuth from './auth.js';
 
-const routers = Router();
+const routers = express();
+routers.use('/auth/user/', userAuth);
 export default routers;

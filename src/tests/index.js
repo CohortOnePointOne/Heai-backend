@@ -4,7 +4,7 @@ import app from '../app';
 
 const version = '/api/v1';
 const appInstance = request(app);
-class testBase {
+export default class testBase {
   static post(url) {
     return appInstance.post(`${version}${url}`);
   }
@@ -21,5 +21,3 @@ class testBase {
     return appInstance.delete(`${version}${url}`);
   }
 }
-
-export default testBase;
